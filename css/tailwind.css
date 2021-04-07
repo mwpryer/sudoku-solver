@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-extrabold text-primary;
+  }
+
+  a {
+    @apply inline-block;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    @apply focus:outline-none focus-visible:ring-2 ring-blue-400;
+  }
+}
+
+@layer components {
+  .link {
+    @apply font-semibold text-blue-600;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 space-x-1.5 text-sm font-semibold transition bg-white border rounded cursor-pointer select-none whitespace-nowrap hover:border-gray-300 disabled:opacity-50 disabled:cursor-default text-primary;
+  }
+
+  .btn--icon {
+    @apply w-10 h-10 p-0;
+  }
+
+  .hr {
+    @apply h-px bg-gray-200;
+  }
+}
+
+@layer utilities {
+  .text-primary {
+    @apply text-gray-900;
+  }
+  .text-secondary {
+    @apply text-gray-700;
+  }
+  .text-tertiary {
+    @apply text-gray-500;
+  }
+}
+
+.subgrid {
+  @apply grid grid-cols-3 grid-rows-3 overflow-hidden rounded;
+}
+
+.cell-container {
+  @apply relative;
+  padding-bottom: 100%;
+}
+.cell-container:nth-of-type(3n) .cell {
+  @apply border-r-0;
+}
+.cell-container:nth-of-type(n + 7) .cell {
+  @apply border-b-0;
+}
+.cell-container::after {
+  content: attr(data-draft);
+  @apply absolute top-0 text-sm text-blue-400 left-1;
+}
+
+.cell {
+  @apply absolute inset-0 block w-full h-full text-lg text-center text-blue-600 bg-white border-b border-r rounded-none cursor-pointer select-none ring-inset;
+  -moz-appearance: textfield;
+  caret-color: transparent;
+}
+.cell::-webkit-outer-spin-button,
+.cell::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.cell.highlight-row,
+.cell.highlight-col,
+.cell.highlight-subgrid {
+  @apply bg-gray-100;
+}
+.cell.highlight-repeat {
+  @apply bg-blue-50;
+}
+.cell.highlight-selected {
+  @apply bg-blue-100;
+}
+.cell.highlight-conflict {
+  @apply text-red-600 bg-red-50;
+}
+.cell.initial {
+  @apply text-gray-600;
+}
+.cell.initial.highlight-selected {
+  @apply bg-gray-200;
+}
+.cell:hover {
+  @apply bg-blue-100 !important;
+}
