@@ -646,12 +646,6 @@ a, button, input, textarea, select{
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-y-4 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-
 .bg-black{
   --tw-bg-opacity: 1;
   background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
@@ -784,12 +778,12 @@ a, button, input, textarea, select{
   line-height: 2rem;
 }
 
-.list-inside{
-  list-style-position: inside;
+.list-outside{
+  list-style-position: outside;
 }
 
-.list-decimal{
-  list-style-type: decimal;
+.list-disc{
+  list-style-type: disc;
 }
 
 .mb-1{
@@ -798,6 +792,10 @@ a, button, input, textarea, select{
 
 .mb-2{
   margin-bottom: 0.5rem;
+}
+
+.mb-4{
+  margin-bottom: 1rem;
 }
 
 .mb-6{
@@ -839,6 +837,10 @@ a, button, input, textarea, select{
 .py-8{
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.pl-5{
+  padding-left: 1.25rem;
 }
 
 .pb-6{
@@ -1162,6 +1164,10 @@ a, button, input, textarea, select{
 }
 
 @media (min-width: 640px){
+  .sm\:pl-12{
+    padding-left: 3rem;
+  }
+
   .sm\:w-4\/5{
     width: 80%;
   }
