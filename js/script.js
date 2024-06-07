@@ -312,7 +312,7 @@ function handleCellKeypress(e) {
       const directions = { 37: "left", 38: "up", 39: "right", 40: "down" };
       const nextCell = sudokuDOM.getAdjacentCell(
         currCell,
-        directions[e.keyCode]
+        directions[e.keyCode],
       );
       if (!nextCell) break;
 
@@ -446,5 +446,8 @@ mdlBackdrop.addEventListener("mousedown", handleMdlClose);
 function initialize() {
   sudokuDOM.createBoard();
   initializeBoard(easy);
+  // Wait for board to be created before showing it to prevent flicker
+  document.getElementById("sudoku-solver").classList.remove("hidden");
+  document.getElementById("sudoku-solver").classList.add("flex");
 }
 initialize();
